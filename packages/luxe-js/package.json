@@ -1,0 +1,11 @@
+{
+    "name": "luxe-js",
+    "version": "0.0.1",
+    "description": "Metaframework for React.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "John Tanner Lehett",
+    "license": "MIT"
+}
