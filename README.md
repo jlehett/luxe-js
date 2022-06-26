@@ -1,1 +1,3 @@
-# luxe-js
+# luxe.js
+
+<img src="./luxe.svg">
