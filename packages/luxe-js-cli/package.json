@@ -7,7 +7,8 @@
         "gen-global-stylesheet": "./bin/commands/gen-global-stylesheet/gen-global-stylesheet.mjs",
         "gen-service": "./bin/commands/gen-service/gen-service.mjs",
         "gen-util": "./bin/commands/gen-util/gen-util.mjs",
-        "gen-constants-ref": "./bin/commands/gen-constants-ref/gen-constants-ref.mjs"
+        "gen-constants-ref": "./bin/commands/gen-constants-ref/gen-constants-ref.mjs",
+        "gen-view": "./bin/commands/gen-view/gen-view.mjs"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"

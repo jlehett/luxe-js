@@ -83,7 +83,7 @@ inquirer
         createFileBasedOnTemplate(
             `${commandTemplatesFilePath}/stories.hbs`,
             data,
-            `src/components/${data.componentCategoryFilePath}/${data.componentFileName}/${data.componentFileName}.stories.js`,
+            `src/components/${data.componentCategoryFilePath}/${data.componentFileName}/${data.componentFileName}.stories.jsx`,
         );
 
         createFileBasedOnTemplate(
