@@ -12,7 +12,7 @@ const questions = [
     {
         type: 'input',
         name: 'componentName',
-        message: 'Name of Component:',
+        message: 'Name of Component (PascalCase):',
         validate(value) {
             const pass = value.match(/^([A-Z])\w*$/);
 
@@ -26,7 +26,7 @@ const questions = [
     {
         type: 'input',
         name: 'componentCategory',
-        message: 'Category of Component:',
+        message: 'Category of Component (kebab-case):',
         validate(value) {
             const pass = value.match(/^([a-z])([a-z-])*$/);
 

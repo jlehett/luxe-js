@@ -12,7 +12,7 @@ const questions = [
     {
         type: 'input',
         name: 'constantRefName',
-        message: 'Name of Constants Ref:',
+        message: 'Name of Constants Ref (PascalCase):',
         validate(value) {
             const pass = value.match(/^([A-Z])\w*$/);
 

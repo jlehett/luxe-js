@@ -12,7 +12,7 @@ const questions = [
     {
         type: 'input',
         name: 'utilFileName',
-        message: 'Name of Utility File:',
+        message: 'Name of Utility File (kebab-case):',
         validate(value) {
             const pass = value.match(/^([a-z])([a-z-])*$/);
 
@@ -26,7 +26,7 @@ const questions = [
     {
         type: 'input',
         name: 'utilCategory',
-        message: 'Category of Utility:',
+        message: 'Category of Utility (kebab-case):',
         validate(value) {
             const pass = value.match(/^([a-z])([a-z-])*$/);
 

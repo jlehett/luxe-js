@@ -21,7 +21,7 @@ const initialQuestions = [
     {
         type: 'input',
         name: 'viewName',
-        message: 'Name of View',
+        message: 'Name of View (PascalCase):',
         validate(value) {
             const pass = value.match(/^([A-Z])\w*$/);
 
@@ -35,7 +35,7 @@ const initialQuestions = [
     {
         type: 'input',
         name: 'viewCategories',
-        message: 'Categories (comma-separated list, from top-down):',
+        message: 'Categories (comma-separated kebab-case list, from top-down):',
         validate(value) {
             const categories = value.split(',');
             

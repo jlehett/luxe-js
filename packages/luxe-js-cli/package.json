@@ -8,7 +8,8 @@
         "gen-service": "./bin/commands/gen-service/gen-service.mjs",
         "gen-util": "./bin/commands/gen-util/gen-util.mjs",
         "gen-constants-ref": "./bin/commands/gen-constants-ref/gen-constants-ref.mjs",
-        "gen-view": "./bin/commands/gen-view/gen-view.mjs"
+        "gen-view": "./bin/commands/gen-view/gen-view.mjs",
+        "gen-context-level": "./bin/commands/gen-context-level/gen-context-level.mjs"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"

@@ -15,9 +15,9 @@ const questions = [
     {
         type: 'input',
         name: 'stylesheetName',
-        message: 'Name of Stylesheet:',
+        message: 'Name of Stylesheet (kebab-case):',
         validate(value) {
-            const pass = value.match(/^([a-z\-])*$/);
+            const pass = value.match(/^([a-z])([a-z-])*$/);
 
             if (pass) {
                 return true;
