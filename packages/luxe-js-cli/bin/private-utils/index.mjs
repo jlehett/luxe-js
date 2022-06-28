@@ -69,7 +69,7 @@ export function createFileBasedOnTemplate(templateFilePath, templateData, writeF
 
     // Write to the new file
     if (!fs.existsSync(path.dirname(writeFilePath))) {
-        fs.mkdirSync(path.dirname(writeFilePath, { recursive: true }));
+        fs.mkdirSync(path.dirname(writeFilePath), { recursive: true });
     }
     fs.writeFileSync(
         `${writeFilePath}`,

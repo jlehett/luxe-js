@@ -3,7 +3,10 @@
     "version": "0.0.1",
     "description": "Metaframework for React.",
     "exports": {
-        "storybook-utils": "./dist/storybook-utils.js"
+        "./async": "./dist/async.js",
+        "./context": "./dist/context.js",
+        "./hooks": "./dist/hooks.js",
+        "./storybook-utils": "./dist/storybook-utils.js"
     },
     "files": [
         "dist"

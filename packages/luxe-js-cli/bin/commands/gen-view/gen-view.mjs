@@ -17,10 +17,7 @@ const initialQuestions = [
             'Index Page',
             'Wrapper',
         ],
-    }
-];
-
-const pageQuestions = [
+    },
     {
         type: 'input',
         name: 'viewName',
@@ -34,10 +31,7 @@ const pageQuestions = [
                 return 'Please enter a valid view name.';
             }
         }
-    }
-];
-
-const globalQuestions = [
+    },
     {
         type: 'input',
         name: 'viewCategories',
@@ -54,14 +48,6 @@ const globalQuestions = [
             return true;
         }
     },
-    {
-        type: 'input',
-        name: 'routing',
-        message: 'URL Route:',
-        validate(value) {
-            return true;
-        }
-    }
 ];
 
 //#endregion
@@ -76,33 +62,74 @@ const addAnswers = (answers) => allAnswers = {...allAnswers, ...answers};
 inquirer.prompt(initialQuestions)
     .then(addAnswers)
     .then(() => {
-        if (allAnswers.viewType === 'Page') {
-            return inquirer.prompt(pageQuestions);
-        } else {
-            return {};
-        }
-    })
-    .then(addAnswers)
-    .then(() => inquirer.prompt(globalQuestions))
-    .then(addAnswers)
-    .then(() => {
         // We need to extract out the categories of the view
         const categories = allAnswers.viewCategories.split(',').map((category) => category.trim());
         
         // We need to extract out the name of the view's file
-        const viewFileName = allAnswers.viewName.split(/(?=[A-Z])/).join('-').toLowerCase();
+        let viewFileName;
+        switch (allAnswers.viewType) {
+            case 'Page':
+                viewFileName = allAnswers.viewName.split(/(?=[A-Z])/).join('-').toLowerCase();
+                break;
+            case 'Index Page':
+                viewFileName = 'index';
+                break;
+            case 'Wrapper':
+                viewFileName = 'wrapper';
+                break;
+            default:
+                throw new Error('Invalid view type.');
+        }
 
         // We need to construct the route to the view's directory
+        let fileToTestForExistence;
         let specificViewDirectory = 'src/views/';
         for (const category of categories) {
             specificViewDirectory += `${category}/`;
         }
-        specificViewDirectory += `${viewFileName}`;
+        if (allAnswers.viewType === 'Page') {
+            specificViewDirectory += `${viewFileName}`;
+            fileToTestForExistence = specificViewDirectory;
+        } else {
+            fileToTestForExistence = `${specificViewDirectory}/${viewFileName}.jsx`;
+        }
 
         // If the view category already exists, bail early with a log that the process
         // did not continue
-        const
-        if (fs.existsSync(`src/views/`))
+        if (fs.existsSync(fileToTestForExistence)) {
+            console.log('This view already exists at this location. Please delete the view if you would like to regenerate it.\n\n\n');
+            return;
+        }
+
+        // Write out the templates for the view
+        const commandTemplatesFilePath = 'node_modules/luxe-js-cli/bin/commands/gen-view/templates';
+        let templateToUse;
+        switch (allAnswers.viewType) {
+            case 'Page':
+                templateToUse = 'page.hbs';
+                break;
+            case 'Index Page':
+                templateToUse = 'index-page.hbs';
+                break;
+            case 'Wrapper':
+                templateToUse = 'wrapper.hbs';
+                break;
+            default:
+                throw new Error('Invalid view type.');
+        }
+        createFileBasedOnTemplate(
+            `${commandTemplatesFilePath}/${templateToUse}`,
+            {
+                ...allAnswers,
+                viewFileName,
+            },
+            `${specificViewDirectory}/${viewFileName}.jsx`
+        );
+        createFileBasedOnTemplate(
+            `${commandTemplatesFilePath}/styles.hbs`,
+            {},
+            `${specificViewDirectory}/${viewFileName}.module.scss`
+        );
     });
 
 //#endregion
