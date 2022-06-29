@@ -1,6 +1,6 @@
 {
     "name": "cra-template-luxe-js",
-    "version": "1.0.0-alpha.0",
+    "version": "1.0.0-alpha.1",
     "description": "Create Luxe.js-powered React apps with one command.",
     "keywords": [
         "luxe.js",
