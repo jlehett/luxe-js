@@ -18,7 +18,6 @@
     },
     "author": "John Tanner Lehett",
     "license": "MIT",
-    "dependencies": {},
     "devDependencies": {
         "react": "^18.2.0",
         "vite": "^2.9.13"
