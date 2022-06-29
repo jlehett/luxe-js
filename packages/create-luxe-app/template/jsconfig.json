@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "commonjs",
+        "paths": {
+            "@assets/*": ["./src/assets/*"],
+            "@components/*": ["./src/components/*"],
+            "@contexts/*": ["./src/contexts/*"],
+            "@hooks/*": ["./src/hooks/*"],
+            "@root/*": ["./src/root/*"],
+            "@services/*": ["./src/services/*"],
+            "@stylesheets/*": ["./src/stylesheets/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@views/*": ["./src/views/*"]
+        }
+    },
+    "exclude": [ "node_modules", "dist" ]
+}
