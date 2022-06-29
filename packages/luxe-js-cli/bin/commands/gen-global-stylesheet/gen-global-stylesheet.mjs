@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 //#region Imports
 
 import fs from 'fs';
