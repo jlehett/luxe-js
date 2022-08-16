@@ -1,6 +1,6 @@
 {
     "name": "luxe-js",
-    "version": "1.0.0-alpha.0",
+    "version": "1.0.0-alpha.1",
     "description": "Metaframework for React.",
     "exports": {
         "./async": "./dist/async.js",
@@ -18,6 +18,9 @@
     },
     "author": "John Tanner Lehett",
     "license": "MIT",
+    "dependencies": {
+        
+    },
     "devDependencies": {
         "react": "^18.2.0",
         "vite": "^2.9.13"
